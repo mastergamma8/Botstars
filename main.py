@@ -1,5 +1,6 @@
 import asyncio
 import logging
+import os
 import sys
 from aiogram import Bot, Dispatcher
 from aiogram.fsm.storage.memory import MemoryStorage
@@ -7,10 +8,14 @@ from aiogram.fsm.storage.memory import MemoryStorage
 import database as db
 from handlers import router
 
-# ⚠️ ВСТАВЬ СВОЙ ТОКЕН СЮДА
-TOKEN = '7225900512:AAFKfTU5UcE5qTBh6iKmIwlMDFzXnKTGuIw'
+TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN', '')
 
 async def main():
+    if not TOKEN:
+        print("ERROR: TELEGRAM_BOT_TOKEN environment variable not set")
+        print("Please set your Telegram bot token in the Secrets tab")
+        return
+    
     # Настройка логов
     logging.basicConfig(level=logging.INFO, stream=sys.stdout)
     
