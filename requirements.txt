@@ -1,2 +1,15 @@
-aiogram>=3.22
-python-dotenv
+# Минимальные зависимости для бота на aiogram v3
+aiogram==3.24.0
+python-dotenv==1.2.1
+
+# Асинхронный клиент HTTP (часто нужен aiogram/ботам)
+aiohttp==3.13.3
+
+# Асинхронная обёртка для sqlite (если используешь sqlite)
+aiosqlite==0.22.1
+
+# Опционально (Postgres async). Удали, если не нужен:
+# asyncpg==0.27.0
+
+# Полезные утилиты/совместимости (опционально)
+# typing-extensions==4.7.1
